@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../style.css" />
+    <link rel="stylesheet" href="./home.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="navbar-container">
+        <a href="#home" id="navbar-logo">AR-STRUCT</a>
+        <ul class="navbar-menu">
+          <li class="navbar-item" id="home-page">
+            <a href="#home" class="navbar-links active">
+              <img
+                class="icon"
+                src="../assets/dash_icon.png"
+                alt="dashboard icon"
+              />
+              Dashboard
+            </a>
+          </li>
+          <li class="navbar-item" id="projects-page">
+            <a href="#projets" class="navbar-links">
+              <img
+                class="icon"
+                src="../assets/projets_icon.png"
+                alt="statistic icon"
+              />
+              Projets</a
+            >
+          </li>
+          <li class="navbar-item" id="equipes-page">
+            <a href="#equipes" class="navbar-links">
+              <img
+                class="icon"
+                src="../assets/equipes_icon.png"
+                alt="team icon"
+              />
+              Equipes</a
+            >
+          </li>
+          <li class="navbar-item" id="analyses-page">
+            <i class="menu-icons" id="analyses-icon"></i>
+            <a href="#analyses" class="navbar-links">
+              <img
+                class="icon"
+                src="../assets/analyses_icon.png"
+                alt="analyse icon"
+              />
+              Analyses</a
+            >
+          </li>
+          <li class="navbar-item" id="reglagles-page">
+            <a href="#reglagles" class="navbar-links">
+              <img
+                class="icon"
+                src="../assets/reglages_icon.png"
+                alt="settings gear"
+              />
+              Réglagles</a
+            >
+          </li>
+        </ul>
+        <div class="select">
+          <select id="navbar-select">
+            <option class="test" value="1" selected>Ikbal AZIMARI TOURE</option>
+          </select>
+          <span class="focus"></span>
+        </div>
+      </div>
+    </nav>
+    <header class="header-container">
+      <a href="#" class="header-title"> Dashboard </a>
+      <form action="" id="header-searchform">
+        <input
+          type="text"
+          class="header-searchbar"
+          id="searchbar"
+          placeholder="Recherchez ce que vous voulez"
+        />
+        <label for="searchbar" class="searchbar-label"> </label>
+      </form>
+      <button id="header-btn" class="button">
+        Créer un nouveau projet
+        <img
+          class="btn-img icon"
+          src="../assets/add-square.png"
+          alt="add square"
+        />
+      </button>
+    </header>
+    <main class="main-container">
+      <section class="hero">
+        <div class="hero-container">
+          <div class="about">
+            <h3 class="hero-title">Bienvenue dans votre espace</h3>
+            <p class="hero-description">
+              Administrez tous vos projets de construction ainsi que vos équipes
+              en un rien de temps !
+            </p>
+            <div class="hero-buttons-container">
+              <button class="button hero-button">
+                Vos équipes
+                <img src="../assets/equipes_icon.png" alt="team icon" />
+              </button>
+              <button class="button hero-button">
+                Vos projets
+                <img src="../assets/projets_icon.png" alt="statistic icon" />
+              </button>
+            </div>
+          </div>
+          <img
+            class="hero-img"
+            src="../assets/hero_icon.svg"
+            alt="project hero img"
+          />
+        </div>
+      </section>
+      <section class="projects">
+        <div class="projects-container">
+          <div class="project-card">
+            <h3 class="project-title">Projet : {nom du projet}</h3>
+            <div class="about">
+              <p>Lieu : lieu numero uno</p>
+              <p>Fin du projet : 05 avril 2023</p>
+              <p>Progression : 10%</p>
+            </div>
+            <button class="project-card-button">Voir plus...</button>
+          </div>
+          <div class="project-card">
+            <h3 class="project-title">Projet : {nom du projet}</h3>
+            <div class="about">
+              <p>Lieu : lieu numero uno</p>
+              <p>Fin du projet : 05 avril 2023</p>
+              <p>Progression : 10%</p>
+            </div>
+            <button class="project-card-button">Voir plus...</button>
+          </div>
+          <div class="project-card">
+            <h3 class="project-title">Projet : {nom du projet}</h3>
+            <div class="about">
+              <p>Lieu : lieu numero uno</p>
+              <p>Fin du projet : 05 avril 2023</p>
+              <p>Progression : 10%</p>
+            </div>
+            <button class="project-card-button">Voir plus...</button>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

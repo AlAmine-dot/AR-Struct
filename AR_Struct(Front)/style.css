@@ -1,0 +1,497 @@
+/* ############ BASIC CONFIGURATIONS ########## */
+
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@200;300;400;500;600&display=swap');
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+    font-family: "Raleway", sans-serif;
+    transition: all .2s linear;
+  }
+  
+  body{
+    min-height: 110vh;
+    overflow-x: hidden;
+    background: url("./assets/background.png") center/cover no-repeat fixed;
+  }
+  
+
+  html{
+    font-size: 62.5%;
+    overflow-x: hidden;
+    /* Définit l'espace au niveau du défilement des scroll
+    teste les valeurs pour mieux comprendre après */
+    scroll-padding-top: 5.5rem;
+    scroll-behavior: smooth;
+}
+
+  ::before,::after{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+  }
+  
+  /* --- root variables */
+  
+  :root {
+    --cleanwhite: #FFFFFF;
+    --limegreen: #077E71;
+    --russiangrey: #7E828A;
+    --blackground: #232731;
+    --select-focus: var(--limegreen);
+    --hue: 200;
+    --saturation: 50%;
+    --foreground-color: hsl(var(--hue), var(--saturation), 75%);
+    --background-color: hsl(var(--hue), var(--saturation), 20%);
+  }
+
+  /* --- scrollbar custom  */
+
+  ::-webkit-scrollbar {
+    width: 1ch;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--russiangrey);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--blackground);
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--limegreen);
+  }
+  
+  /* ############ GRID LAYOUT ########## */
+  
+  body {
+  display: grid;
+  grid-gap: 3px;
+  grid-template-columns: 300px repeat(11, 1fr);
+  grid-template-rows: 80px auto;
+  grid-template-areas: 
+  "m h h h h h h h h h h h"
+  "m c c c c c c c c c c c";
+}
+
+.header-container {
+  grid-area: h;
+}
+
+.navbar {
+  grid-area: m;
+}
+
+.main-container {
+  grid-area: c;
+}
+
+  /* ############ NAVBAR ########## */
+
+
+.navbar {
+  width: 300px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  font-size: 1.2rem;
+  z-index: 99;
+  /* background-color: #7e828a25; */
+}
+
+.navbar-container {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 80px 1fr 80px;
+  align-items: flex-start;
+  padding: 0 0 0 5vw;
+}
+
+/* --- navbar logo */
+
+#navbar-logo {
+  color: var(--cleanwhite);
+  font-style: normal;
+  font-weight: 700;
+  font-size: 2.5rem;
+  line-height: 29px;
+  cursor: pointer;
+  user-select: none;
+  align-self: center;
+  text-decoration: none;
+}
+
+/* --- main menu */
+
+.navbar-menu {
+  display: flex;
+  font-size: 2rem;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 80%;
+  align-self: center;
+  gap: 47px;
+  list-style-type: none;
+  transition: all 0.1s ease;
+}
+
+.navbar-item {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  height: 100%;
+}
+
+.navbar-links {
+  color: var(--cleanwhite);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.icon{
+  height: 1.5vw;
+  width: 1.5vw;
+}
+
+.active{
+  height: 60px;
+  width: 170px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  background: linear-gradient(269.74deg, rgba(255, 255, 255, 0.21) -254.09%, rgba(255, 255, 255, 0) 99.84%);
+  border-radius: 5px;
+}
+
+/* --- customized select : */
+
+#navbar-select{
+  /* // A reset of styles, including removing the default dropdown arrow */
+  appearance: none;
+  /* // Additional resets for further consistency */
+  background-color: transparent;
+  border: none;
+  padding: 1em 1em;
+  margin: 0;
+  width: 100%;
+  font-weight: 600;
+  font-size: 1.5rem;
+  line-height: 23px;
+  cursor: inherit;
+  line-height: inherit;
+  outline: none;
+  color: var(--cleanwhite);
+  user-select: none;
+  background: none;
+}
+
+#navbar-select::-ms-expand {
+  display: none;
+}
+
+.select{
+  display: grid;
+  grid-template-areas: "select";
+  align-self: center;
+  width: 75%;
+  min-width: 15ch;
+  max-width: 30ch;
+  border: none;
+  border-radius: 0.25em;
+  font-size: 2.25rem;
+  cursor: pointer;
+  line-height: 1.1;
+  background: linear-gradient(95.71deg, #394359 -14.7%, var(--blackground) 123.09%);
+  box-shadow: 5px 9px 54px rgba(17, 188, 169, 0.06);
+  align-items: center;
+  position: relative;
+}
+
+
+.select::after {
+  content: " ";
+  display: block;
+  width: 0.8em;
+  height: 0.5em;
+  border-radius: 5px;
+  background-color: var(--russiangrey);
+  clip-path: polygon(100% 0%, 0 0%, 50% 100%);
+  margin-right: 5%;
+}
+
+select,
+.select:after {
+  grid-area: select;
+}
+
+.select::after{
+  justify-self: end;
+}
+
+select:focus + .focus {
+  position: absolute;
+  top: -1px;
+  left: -1px;
+  right: -1px;
+  bottom: -1px;
+  border: 2px solid var(--select-focus);
+  border-radius: inherit;
+}
+
+ /* ############ HEADER ########## */
+
+.header-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+/* --- header title */
+
+.header-title{
+  user-select: none;
+  text-decoration: none;
+  color: var(--cleanwhite);
+  font-style: normal;
+  font-weight: 700;
+  font-size: 2.2rem;
+  line-height: 34px;
+}
+
+/* --- header searchbar */
+
+#header-searchform{
+  display: grid;
+  grid-template-areas: "searchicon";
+  
+}
+
+.header-searchbar{
+  background: #2E323C;
+  color: #D5D6D8;
+  outline: none;
+  border: none;
+  border-radius: 15px;
+  height: 5rem;
+  width: 23vw;
+  padding: 0px 10px;
+  cursor: pointer;
+}
+
+.header-searchbar::placeholder{
+  font-size: 1.7rem;
+}
+
+.header-searchbar:focus{
+  border: 1px solid var(--limegreen);
+}
+
+
+.header-searchbar{
+  grid-area: searchicon;
+}
+
+.searchbar-label {
+  cursor: pointer;
+  grid-area: searchicon;
+  padding: 0px 10px;
+}
+
+.searchbar-label::before{
+  content: " ";
+  display: block;
+  height: 1.5vw;
+  width: 1.5vw;
+  background: url("./assets/search-normal.png") center/cover;
+}
+
+.searchbar-label{
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+/* --- header button */
+
+
+#header-btn {
+  color: white;
+  background: linear-gradient(93.58deg, #363E52 -2%, #2B3242 117.56%);
+  box-shadow: inset 8.74047px 9.71163px 18.4521px rgba(61, 73, 100, 0.3);
+  display: flex;
+  align-items: center;
+  height: 5rem;
+  width: 17.5vw;
+  min-width: 100px;
+  font-weight: 400;
+  font-size: 1.5rem;
+  line-height: 19px;
+}
+
+/* --- generic button */
+
+.button {
+  background: linear-gradient(93.58deg, #363E52 -2%, #2B3242 117.56%);
+  box-shadow: inset 8.74047px 9.71163px 18.4521px rgba(61, 73, 100, 0.3);
+  color: white;
+  padding: 0 10px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  border-radius: 10px;
+  text-decoration: none;
+  font-size: 1.3vw;
+  border: none;
+  outline: none;
+  min-height: 4.5rem;
+  height: 4vw;
+  transition: all 0.3s ease;
+  gap: 13px;
+  min-width: 11vw;
+  width: 13vw;
+}
+
+.btn-img{
+  height: 2.2vw;
+  width: 2.2vw;
+}
+
+
+/* ############ RESPONSIVENESS BREAKPOINTS ########## */
+
+@media screen and (max-width: 1024px){
+  /* -- navbar responsiveness */
+  
+  /* La petite astuce pour légèrement tout rétrécir tu connais */
+  html{
+      font-size: 40%;
+  }
+
+  /* -- layout */
+
+  body {
+    display: grid;
+    grid-gap: 3px;
+    grid-template-columns: 200px repeat(11, 1fr);
+    grid-template-rows: 80px auto;
+    grid-template-areas: 
+    "m h h h h h h h h h h h"
+    "m c c c c c c c c c c c";
+  }
+  
+  .header-container {
+    grid-area: h;
+    
+  }
+  
+  .navbar {
+    grid-area: m;
+    width: 200px;
+  }
+
+  .navbar-menu{
+    align-self: center;
+  }
+
+  
+  .main-container {
+    grid-area: c;
+  }
+
+  /* -- active class */
+
+  .active{
+    height: 7ch;
+    width: 14ch;
+  }
+
+  /* -- links img and all icon img */
+  
+  .icon{
+    height: 2vw;
+    width: 2vw;
+  }
+
+  /* -- navbar select */
+
+  #navbar-select{
+    padding: 0.5em 1em;
+    font-weight: 600;
+    line-height: 23px;
+  }
+
+  .select{
+    width: 60%;
+  }
+
+  /* -- header responsiveness */
+
+  .header-searchbar{
+    border-radius: 15px;
+    height: 6rem;
+    width: 34rem;
+  }
+  
+  .header-searchbar::placeholder{
+    font-size: 1.8rem;
+  }
+
+  /* --- header button */
+
+
+  #header-btn {
+    height: 6rem;
+    width: 21vw;
+    min-width: 100px;
+    font-size: 1.3vw;
+  }
+
+  #btn-img{
+    height: 2.5vw;
+    width: 2.5vw;
+  }
+
+  /* --- generic button */
+
+  .button {
+    font-size: 1.5vw;
+    min-height: 4.5rem;
+    height: 6vw;
+    min-width: 11vw;
+    width: 23rem;
+  }
+  
+
+}
+
+
+
+
+/* /!\  UNCOMPATIBLE DEVICE : */
+@media screen and (max-width: 550px){
+  body{
+    display: none;
+  }
+  html{
+    background: url("./assets/oops.png") center/cover fixed;
+  }
+
+}
+
+
+
+
+

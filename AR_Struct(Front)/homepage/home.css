@@ -1,0 +1,246 @@
+ /* /!\ This CSS stylesheet only contains home main content's style */
+ 
+ /* ############ BASIC CONFIGURATIONS ########## */
+  
+  /* --- root variables */
+  
+  :root {
+    --cleanwhite: #FFFFFF;
+    --limegreen: #077E71;
+    --russiangrey: #7E828A;
+    --blackground: #232731;
+    --darklight: #292D36;
+    --select-focus: var(--limegreen);
+    --hue: 200;
+    --saturation: 50%;
+    --foreground-color: hsl(var(--hue), var(--saturation), 75%);
+    --background-color: hsl(var(--hue), var(--saturation), 20%);
+  }
+
+/* ############ HOME MAIN ########## */
+
+ /* -- layout */
+
+ main {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: minmax(520px,1fr) auto;
+    grid-template-areas: 
+    "h"
+    "p";
+    /* background-color: beige; */
+  }
+  
+  .hero {
+    grid-area: h;
+    /* background-color: red; */
+    
+  }
+  
+  .projects {
+    grid-area: p;
+    min-height: 180px;
+  }
+
+ /* -- ##### HERO : */
+
+  .hero{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 100px 0;
+  }
+
+ .hero-container{
+    width: 95%;
+    height: 85%;
+    background: var(--darklight);
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+ }
+
+ .hero-container .about{
+    height: 70%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-direction: column;
+    color: var(--cleanwhite);
+    padding: 0 0 0 4.5rem;
+ }
+
+ .hero-container .about .hero-title{
+    font-weight: 700;
+    font-size: 3rem;
+    line-height: 38px; 
+ }
+
+ .hero-container .about .hero-description{
+    font-weight: 400;
+    font-size: 1.7rem;
+    line-height: 29px;
+ }
+
+ .hero-buttons-container{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 3vw;
+ }
+
+ .hero-container .hero-img{
+    height: 97%;
+    margin: 0 20px 0 0;
+ }
+
+
+  /* -- ##### PROJECTS CARD : */
+
+  .projects{
+    width: 95%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .projects-container{
+    display: grid;
+    /* ici minmax() retourne le plus gros des deux, donc ça permet ici de garantir que
+    les pistes font au minimum 27rem et au maximum la largeur idéale selon grid. */
+    grid-template-columns: repeat(auto-fit, minmax(20rem,1fr));
+    grid-auto-rows: 180px;
+    gap: 12rem;
+    width: 100%;
+    min-height: 180px;
+    margin: 100px 0;
+  }
+
+  .project-card{
+    background: linear-gradient(119.15deg, #2E374B -13.54%, #292F3C 118.09%);
+    box-shadow: 9.71163px 11.654px 77.693px rgba(84, 135, 183, 0.08);
+    border-radius: 20px;
+    min-width: 180px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .project-card .project-title{
+    color: var(--cleanwhite);
+    font-weight: 600;
+    font-size: 14.83px;
+    line-height: 22px;
+}
+
+  .project-card .about{
+    display: flex;
+    width: 100%;
+    padding: 0 0 0 10px;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    color: #B6B7BC;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 1.6rem;
+    line-height: 22px;
+    gap: 7px;
+  }
+
+  .project-card-button{
+    background: #077E71;
+    box-shadow: inset 8.74047px 9.71163px 18.4521px rgba(61, 73, 100, 0.3);
+    color: white;
+    padding: 0 10px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    border-radius: 20px;
+    text-decoration: none;
+    font-size: 1.6rem;
+    border: none;
+    outline: none;
+    height: 2.5vw;
+    transition: all 0.3s ease;
+    width: 45%;
+  }
+
+
+
+ /* ############ RESPONSIVENESS BREAKPOINTS ########## */
+
+@media screen and (max-width: 1024px){
+    
+    /* La petite astuce pour légèrement tout rétrécir tu connais */
+    html{
+        font-size: 40%;
+    }
+  
+    /* -- layout */
+
+    main {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: minmax(420px,1fr) auto;
+        grid-template-areas: 
+        "h"
+        "p";
+    }
+    
+    .hero {
+        grid-area: h;
+    }
+    
+    .projects {
+        grid-area: p;
+    }
+
+      /* -- hero */
+
+      .hero{
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        margin-top: 0px;
+      }
+
+    .hero-container{
+        display: flex;
+        justify-content: space-evenly;
+        flex-direction: column-reverse;
+        align-items: center;
+        margin: 20px 0;
+    }
+
+    .hero-container .hero-img{
+        height: 45%;
+        margin: 20px 0;
+    }
+
+    .hero-container .about{
+        height: 40%;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 0 0 0 3.5rem;
+     }
+
+     .hero-container .about .hero-title{
+        font-size: 4rem;
+     }
+    
+     .hero-container .about .hero-description{
+        font-size: 2.7rem;
+     }
+
+
+}
+
