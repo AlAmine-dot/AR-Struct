@@ -1,0 +1,342 @@
+ /* /!\ This CSS stylesheet only contains home main content's style */
+ 
+ /* ############ BASIC CONFIGURATIONS ########## */
+  
+  /* --- root variables */
+  
+  :root {
+    --cleanwhite: #FFFFFF;
+    --limegreen: #077E71;
+    --russiangrey: #7E828A;
+    --blackground: #232731;
+    --darklight: #292D36;
+    --select-focus: var(--limegreen);
+    --hue: 200;
+    --saturation: 50%;
+    --foreground-color: hsl(var(--hue), var(--saturation), 75%);
+    --background-color: hsl(var(--hue), var(--saturation), 20%);
+  }
+
+/* ############ HOME MAIN ########## */
+
+ /* -- layout */
+
+ main {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: minmax(720px,1fr) auto;
+    grid-template-areas: 
+    "h"
+    "p";
+    /* background-color: beige; */
+  }
+  
+  .project_details {
+    grid-area: h;
+    
+  }
+  
+  .project_list {
+    grid-area: p;
+    min-height: 180px;
+    /* background-color: blue; */
+  }
+
+/* ############ PROJECT-DETAILS ########## */
+
+  .details_container{
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .details_card{
+    width: 95%;
+    height: 85%;
+    background: var(--darklight);
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .details_card .card_descr{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 90%;
+    width: 50%;
+    padding: 0 0 0 4.5rem;
+  }
+
+  .card_descr .card_title{
+    font-weight: 700;
+    font-size: 3rem;
+    line-height: 38px; 
+    color: var(--cleanwhite);
+  }
+
+  .card_descr p{
+    font-family: 'Raleway';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.5rem;
+    line-height: 2rem;
+    color: var(--cleanwhite);
+ }
+
+ 
+ .details_card_button{
+    background: #077E71;
+    box-shadow: inset 8.74047px 9.71163px 18.4521px rgba(61, 73, 100, 0.3);
+    color: white;
+    padding: 0 10px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    border-radius: 20px;
+    text-decoration: none;
+    font-size: 1.6rem;
+    border: none;
+    outline: none;
+    height: 3.5vw;
+    transition: all 0.3s ease;
+    width: 45%;
+  }
+
+  /* --- scheme section : */
+ 
+    .details_card .card_scheme{
+      height: 100%;
+      width: 50%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 3vh;
+      padding: 0 4.5rem 0 0;
+    }
+
+    .card_scheme .scheme_container{
+      background-color: rgba(255, 255, 255, 0.45);
+      height: 397px;
+      max-width: 392px;
+      width: 37vw;
+      border-radius: 2rem;
+    }
+
+    .scheme_container::after{
+      content:"3D";
+      background-color: #077E71;
+      position: relative;
+      top: 15%;
+      left: 75.5%;
+      padding: 7px;
+      border-radius: 5px;
+      font-size: 2rem;
+      color: var(--cleanwhite);
+      cursor: pointer;
+    }
+
+    .scheme_container::before{
+      content:"2D";
+      background-color: #077E71;
+      position: relative;
+      
+      top: 4%;
+      left: 85.5%;
+      padding: 7px;
+      border-radius: 5px;
+      font-size: 2rem;
+      color: var(--cleanwhite);
+      cursor: pointer;
+    }
+
+    .project_list{
+      margin: 0 20px;
+    }
+    .project_list .searchbar{
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    /* --- project list searchbar */
+
+    #project_list_searchform{
+      display: grid;
+      grid-template-areas: "searchicon";
+      
+    }
+    
+    .project_list_searchbar{
+      background: #2E323C;
+      color: #D5D6D8;
+      outline: none;
+      border: none;
+      border-radius: 15px;
+      height: 5rem;
+      width: 23vw;
+      padding: 0px 10px;
+      cursor: pointer;
+    }
+    
+    .project_list_searchbar::placeholder{
+      font-size: 1.7rem;
+    }
+    
+    .project_list_searchbar:focus{
+      border: 1px solid var(--limegreen);
+    }
+    
+    
+    .project_list_searchbar{
+      grid-area: searchicon;
+    }
+    
+    .project_searchbar_label {
+      cursor: pointer;
+      grid-area: searchicon;
+      padding: 0px 10px;
+    }
+    
+    .project_searchbar_label::before{
+      content: " ";
+      display: block;
+      height: 1.5vw;
+      width: 1.5vw;
+      position: relative;
+      top: 50%;
+      left: 97%;
+      transform: translate(-50%,-50%);
+      bottom: 0%;
+      background: url("../assets/search-normal.png") center/cover;
+    }
+    
+    .project_searchbar-label{
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+    }
+
+    /* --  */
+
+
+    #list {
+    border: 1px solid #000000;
+    border-collapse: collapse;
+    margin: 30px 0;
+    font-size: 1.5rem;
+    padding: 0px;
+    table-layout: fixed;
+    min-width: 100%;
+  }
+
+  #list th {
+      text-align: center;
+      padding: 8px;
+      border: 1px solid #000000;
+      background: #077e703a;
+      color: #FFFFFF;
+      font-weight: bold;
+      text-align: center
+  }
+
+  #list td {
+      padding: 8px;
+      border: 1px solid black ;
+      text-align: center;
+  }
+
+  #list tr {
+      color: var(--cleanwhite);
+      text-align: center;
+  }
+    
+
+@media screen and (max-width: 858px){
+
+/* ############ HOME MAIN ########## */
+
+ /* -- layout */
+
+  main {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: minmax(920px,1fr) auto;
+    grid-template-areas: 
+    "h"
+    "p";
+    /* background-color: beige; */
+  }
+
+  .project_details {
+    grid-area: h;
+    
+  }
+
+  .project_list {
+    grid-area: p;
+    min-height: 180px;
+  }
+
+  /* ############ PROJECT-DETAILS ########## */
+
+  .details_container{
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .details_card{
+    width: 95%;
+    height: 85%;
+    padding: 30px 0;
+    background: var(--darklight);
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+  }
+  
+  .details_card .card_descr{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 70%;
+    width: 100%;
+    padding: 0;
+  }
+
+  .details_card .card_scheme{
+    width: 100%;
+    padding: 0;
+    align-items: center;
+  }
+
+  .scheme_container{
+    min-width: 392px;
+  } 
+
+  td img{
+    margin-bottom: 5px;
+  }
+}    
+
+@media screen and (max-width: 1024px){
+  .scheme_container::after{
+    top: 13%;
+    left: 82.5%;
+  }
+
+  .scheme_container::before{
+
+    top: 4%;
+    left: 90.3%;
+  }
+}
