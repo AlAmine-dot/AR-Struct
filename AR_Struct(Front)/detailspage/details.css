@@ -4,6 +4,7 @@
   
   /* --- root variables */
   
+
   :root {
     --cleanwhite: #FFFFFF;
     --limegreen: #077E71;
@@ -64,7 +65,7 @@
   .details_card .card_descr{
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    gap: 30px;
     height: 90%;
     width: 50%;
     padding: 0 0 0 4.5rem;
@@ -77,14 +78,7 @@
     color: var(--cleanwhite);
   }
 
-  .card_descr p{
-    font-family: 'Raleway';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 1.5rem;
-    line-height: 2rem;
-    color: var(--cleanwhite);
- }
+
 
  
  .details_card_button{
@@ -106,6 +100,46 @@
     width: 45%;
   }
 
+  /* -- details form : */
+
+  .details_form{
+    min-height: 500px;
+    height: auto;
+    width: auto;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+
+  }
+
+  .card_descr .input_box{
+    font-family: 'Raleway';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.5rem;
+    line-height: 2rem;
+    color: var(--cleanwhite);
+ }
+
+ .card_descr .input_box{
+  width: 100%;
+  display: flex;
+  gap: 10px;
+ }
+
+ .card_descr .input_box input{
+  background: transparent;
+  outline: none;
+  border: none;
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 400;
+  /* mwidth: 60%; */
+  font-size: 1.5rem;
+  line-height: 2rem;
+  color: var(--cleanwhite);
+ }
+
   /* --- scheme section : */
  
     .details_card .card_scheme{
@@ -125,33 +159,21 @@
       max-width: 392px;
       width: 37vw;
       border-radius: 2rem;
+      display: flex;
+      justify-content: flex-start;
+      align-items: flex-end;
+      gap: 6px;
+      flex-direction: column;
+      padding: 10px 10px 0 0;
     }
 
-    .scheme_container::after{
-      content:"3D";
-      background-color: #077E71;
-      position: relative;
-      top: 15%;
-      left: 75.5%;
+    .scheme_container span{
       padding: 7px;
       border-radius: 5px;
       font-size: 2rem;
       color: var(--cleanwhite);
       cursor: pointer;
-    }
-
-    .scheme_container::before{
-      content:"2D";
       background-color: #077E71;
-      position: relative;
-      
-      top: 4%;
-      left: 85.5%;
-      padding: 7px;
-      border-radius: 5px;
-      font-size: 2rem;
-      color: var(--cleanwhite);
-      cursor: pointer;
     }
 
     .project_list{
@@ -220,6 +242,7 @@
       align-items: center;
     }
 
+ 
     /* --  */
 
 
@@ -255,6 +278,8 @@
   }
     
 
+  /* responsiveness  */
+
 @media screen and (max-width: 858px){
 
 /* ############ HOME MAIN ########## */
@@ -264,7 +289,7 @@
   main {
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: minmax(920px,1fr) auto;
+    grid-template-rows: minmax(1120px,1fr) auto;
     grid-template-areas: 
     "h"
     "p";
@@ -273,6 +298,7 @@
 
   .project_details {
     grid-area: h;
+    height: 100%;
     
   }
 
@@ -290,11 +316,13 @@
     align-items: center;
   }
   
+  .about{
+    width: 100%;
+  }
   .details_card{
     width: 95%;
     height: 85%;
     padding: 30px 0;
-    background: var(--darklight);
     border-radius: 12px;
     display: flex;
     flex-direction: column-reverse;
@@ -302,12 +330,44 @@
     align-items: center;
     gap: 50px;
   }
-  
+
+  .about{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .details_form{
+    width:fit-content;
+    min-width: 400px;
+    align-self: center;
+    min-height: 100px;
+    height: 300px;
+  }
+
+  .details_form .input_box{
+      font-family: 'Raleway';
+      font-style: normal;
+      font-weight: 400;
+      font-size: 1.5rem;
+      line-height: 2rem;
+      color: var(--cleanwhite);
+      width: fit-content;
+      justify-content: flex-start;
+  }
+
+  .details_card button{
+    align-self: center;
+  }
+
+  .details_form input{
+    width: fit-content;
+  }
   .details_card .card_descr{
     display: flex;
     align-items: center;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
     height: 70%;
     width: 100%;
     padding: 0;
@@ -328,15 +388,3 @@
   }
 }    
 
-@media screen and (max-width: 1024px){
-  .scheme_container::after{
-    top: 13%;
-    left: 82.5%;
-  }
-
-  .scheme_container::before{
-
-    top: 4%;
-    left: 90.3%;
-  }
-}

@@ -1,0 +1,105 @@
+ /* /!\ This CSS stylesheet only contains home main content's style */
+ 
+ /* ############ BASIC CONFIGURATIONS ########## */
+  
+  /* --- root variables */
+  
+  :root {
+    --cleanwhite: #FFFFFF;
+    --limegreen: #077E71;
+    --russiangrey: #7E828A;
+    --blackground: #232731;
+    --darklight: #292D36;
+    --select-focus: var(--limegreen);
+    --hue: 200;
+    --saturation: 50%;
+    --foreground-color: hsl(var(--hue), var(--saturation), 75%);
+    --background-color: hsl(var(--hue), var(--saturation), 20%);
+  }
+
+/* ############ HOME MAIN ########## */
+
+ /* -- layout */
+
+ main {
+    display: grid;
+    grid-template-columns: 1fr;
+    /* Si tu veux changer la taille minimale de la première section, remplace les 420px par la valeur de ton choix */
+    /* la deuxième section s'adaptera automatiquement */
+    grid-template-rows: minmax(420px,1fr) auto;
+    grid-template-areas: 
+    "s1"
+    "s2";
+  }
+  
+  .section1 {
+    grid-area: s1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: red;
+  }
+  
+  .section2 {
+    grid-area: s2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* Tu peux varier la taille minimale de cette section ici : */
+    min-height: 180px;
+    background-color: blue;
+  }
+
+  /* -- containers sizing */
+
+  .section1_container{
+    /* Ce truc c'est le container de la section, c'est là de dans que seront tes éléments */
+    background-color: darkred;
+    /* donc pas la peine d'utiliser des margin ou padding, si tu veux décaler tes éléments par-rapport à la section 
+    tu peux juste manipuler la width comme il faut*/
+    width: 90%;
+    height: 90%;
+  }
+
+  .section2_container{
+    /* Ce truc c'est le container de la section, c'est là de dans que seront tes éléments */
+    background-color: darkblue;
+    /* donc pas la peine d'utiliser des margin ou padding, si tu veux décaler tes éléments par-rapport à la section 
+    tu peux juste manipuler la width comme il faut*/
+    width: 90%;
+    height: 90%;
+  }
+
+ 
+
+ /* ############ RESPONSIVENESS BREAKPOINTS ########## */
+
+@media screen and (max-width: 1024px){
+    
+    /* La petite astuce pour légèrement tout rétrécir tu connais */
+    html{
+        font-size: 40%;
+    }
+  
+    /* -- layout */
+
+    main {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: minmax(420px,1fr) auto;
+        grid-template-areas: 
+        "h"
+        "p";
+    }
+    
+    .hero {
+        grid-area: h;
+    }
+    
+    .projects {
+        grid-area: p;
+    }
+
+      
+
+}

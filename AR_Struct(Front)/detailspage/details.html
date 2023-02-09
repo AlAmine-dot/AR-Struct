@@ -75,7 +75,7 @@
     </nav>
     <header class="header-container">
       <a href="#" class="header-title"> Dashboard </a>
-      <form action="" id="header-searchform">
+      <form action="GET" id="header-searchform">
         <input
           type="text"
           class="header-searchbar"
@@ -99,18 +99,54 @@
           <div class="details_card">
             <div class="card_descr">
               <h3 class="card_title">Détails du projet :</h3>
-              <!-- <div class="about"> -->
-              <p>Chef de projet : Alex GBENAFA</p>
-              <p>Bureau d’étude : Cabinet BOCOUM</p>
-              <p>Architecte : Ali SAKHO</p>
-              <p>Electricien : Ikbal AZIMARI TOURE</p>
-              <p>Lieu : Sacré-Coeur 3 pyrotechnie villa 09</p>
-              <p>Début du projet : 10/02/2023</p>
-              <p>Fin du projet : 05/04/2023</p>
-              <button class="details_card_button">Modifier</button>
+              <div class="about">
+                <!-- <form action="" id="details_form">
+                <div class="input_box">
+                  <label for="">Chef de projet :</label>
+                  <input type="text" value="Alex GBENAFA" id="" />
+                </div>
+              </form> -->
+                <form class="details_form">
+                  <div class="input_box">
+                    <label>Chef de projet :</label
+                    ><input type="text" value="Alex GBENAFA" disabled />
+                  </div>
+                  <div class="input_box">
+                    <label>Bureau d’étude :</label
+                    ><input type="text" value="Cabinet BOCOUM" disabled />
+                  </div>
+                  <div class="input_box">
+                    <label>Architecte :</label
+                    ><input type="text" value="Ali SAKHO" disabled />
+                  </div>
+                  <div class="input_box">
+                    <label>Electricien :</label
+                    ><input type="text" value=" Ikbal AZIMARI TOURE" disabled />
+                  </div>
+                  <div class="input_box">
+                    <label>Lieu :</label
+                    ><input
+                      type="text"
+                      value="Sacré-Coeur 3 pyrotechnie villa 09"
+                    />
+                  </div>
+                  <div class="input_box">
+                    <label>Début du projet :</label
+                    ><input type="text" value="10/02/2023" />
+                  </div>
+                  <div class="input_box">
+                    <label>Fin du projet :</label
+                    ><input type="text" value="06/04/2023" />
+                  </div>
+                  <button class="details_card_button">Modifier</button>
+                </form>
+              </div>
             </div>
             <div class="card_scheme">
-              <div class="scheme_container"></div>
+              <div class="scheme_container">
+                <span>2D</span>
+                <span>3D</span>
+              </div>
               <button class="details_card_button">Importer un schéma</button>
             </div>
           </div>
@@ -118,7 +154,7 @@
       </section>
       <section class="project_list">
         <div class="searchbar">
-          <form action="" id="project_list_searchform">
+          <form action="GET" id="project_list_searchform">
             <input
               type="text"
               class="project_list_searchbar"
